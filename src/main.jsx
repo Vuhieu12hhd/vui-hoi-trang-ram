@@ -2,6 +2,9 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { CalendarDays, MapPin, Sparkles, Music2, Gift, MoonStar, ChevronDown, Heart, Star, Menu, X } from 'lucide-react';
 import './styles.css';
+import MidAutumnGame from './components/MidAutumnGame';
+import baoChauLogo from './components/image/61afcf6a3908b956e019.jpg';
+import MoonFestivalCharacters from './components/MoonFestivalCharacters';
 
 const activities = [
   { icon: '🏮', title: 'Rước đèn lung linh', text: 'Cùng nhau thắp sáng đêm rằm với hàng trăm chiếc đèn lồng rực rỡ.' },
@@ -55,27 +58,30 @@ function App() {
   return (
     <div className="page-shell">
       <nav className="nav">
-        <a className="brand" href="#home"><span className="brand-moon">☾</span><span>Trăng Rằm</span></a>
+        <a className="brand" href="#home"><img className="brand-logo" src={baoChauLogo} alt="Bảo Châu" /><span>Trăng Rằm</span></a>
         <div className={`nav-links ${open ? 'show' : ''}`}>
           <a href="#about" onClick={() => setOpen(false)}>Lễ hội</a>
           <a href="#activities" onClick={() => setOpen(false)}>Hoạt động</a>
           <a href="#schedule" onClick={() => setOpen(false)}>Lịch trình</a>
           <a href="#wish" onClick={() => setOpen(false)}>Gửi lời chúc</a>
         </div>
-        <a href="#schedule" className="nav-cta">Khám phá ngay</a>
+        <a href="#game" className="nav-cta">Khám phá ngay</a>
         <button className="menu-btn" aria-label="Menu" onClick={() => setOpen(v => !v)}>{open ? <X/> : <Menu/>}</button>
       </nav>
 
       <main>
         <section className="hero" id="home">
+          <div className="hero-aurora" aria-hidden="true" />
+          <div className="shooting-stars" aria-hidden="true"><span/><span/><span/></div>
           <div className="stars" aria-hidden="true">{stars.map((s,i)=><span key={i} style={s}/>)}</div>
           <div className="cloud cloud-a" /><div className="cloud cloud-b" />
           <Lantern left="8%" delay="0s" scale={.9}/><Lantern left="88%" delay="1.2s" scale={.75} hue="gold"/>
           <Lantern left="18%" delay="2s" scale={.52} hue="gold"/><Lantern left="78%" delay=".5s" scale={.55}/>
           <div className="moon-wrap"><div className="moon"><span className="rabbit">🐇</span></div><div className="moon-glow" /></div>
+          <MoonFestivalCharacters />
           <div className="hero-content">
-            <div className="eyebrow"><Sparkles size={16}/> Đêm hội đoàn viên 2026</div>
-            <h1>Vui hội<br/><span>Trăng Rằm</span></h1>
+            
+            <h1>Vui hội Trăng Rằm<br/><span>cùng Bảo Châu</span></h1>
             <p>Một đêm Trung Thu đầy ánh sáng, tiếng cười và những khoảnh khắc sum vầy đáng nhớ.</p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="#activities">Khám phá lễ hội <ChevronDown size={18}/></a>
@@ -112,6 +118,8 @@ function App() {
           <div className="banner-visual"><div className="big-lantern"><span>福</span></div><div className="spark s1">✦</div><div className="spark s2">✧</div><div className="spark s3">✦</div></div>
         </section>
 
+        <MidAutumnGame />
+
         <section className="section schedule-section" id="schedule">
           <div className="section-heading"><div><span className="section-kicker">LỊCH TRÌNH ĐÊM HỘI</span><h2>Đi cùng ánh trăng</h2></div><Music2 size={40}/></div>
           <div className="timeline">
@@ -134,7 +142,7 @@ function App() {
         </section>
       </main>
 
-      <footer><div className="brand"><span className="brand-moon">☾</span><span>Trăng Rằm</span></div><p>Vui hội Trăng Rằm · 2026</p><span>Made with ♥ dưới ánh trăng</span></footer>
+      <footer><div className="brand"><img className="brand-logo" src={baoChauLogo} alt="Bảo Châu" /><span>Trăng Rằm</span></div><p>Vui hội Trăng Rằm cùng Bảo Châu · 2026</p><span>Made with ♥ dưới ánh trăng</span></footer>
     </div>
   );
 }
