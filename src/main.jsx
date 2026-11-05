@@ -5,6 +5,7 @@ import './styles.css';
 import MidAutumnGame from './components/MidAutumnGame';
 import baoChauLogo from './components/image/61afcf6a3908b956e019.jpg';
 import MoonFestivalCharacters from './components/MoonFestivalCharacters';
+import MoonFestivalCharacters from './components/MoonFestivalCharacters';
 
 const activities = [
   { icon: '🏮', title: 'Rước đèn lung linh', text: 'Cùng nhau thắp sáng đêm rằm với hàng trăm chiếc đèn lồng rực rỡ.' },
